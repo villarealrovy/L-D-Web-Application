@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	ng-app="mainApp">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/images/title-logo.ico" />
+<title>IT Logs System - Login</title>
+
+<!-- Bootstrap -->
+<link href="/css/common/bootstrap.min.css" rel="stylesheet" />
+<link href="/css/common/sticky-footer.css" rel="stylesheet" />
+<link href="/css/app/custom.css" rel="stylesheet" />
+<link href="/css/common/signin.css" rel="stylesheet" />
+<link href="/css/app/login.css" rel="stylesheet" />
+<link href="/css/itlogs.css" rel="stylesheet" />
+<link href="/css/angular-material.css" rel="stylesheet" />
+
+<script src="/js/common/jquery-2.1.3.min.js"></script>
+<script src="/js/moment.js" type="text/javascript"></script>
+<script src="/js/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+<script src="/js/angularjs/angular.min.js" type="text/javascript"></script>
+<script src="/js/angularjs/angular-file-saver.bundle.min.js"></script>
+
+<script src="/js/app/mainApp.js"></script>
+<script src="/js/app/loginController.js"></script>
+<script src="/js/angularjs/angular-animate.min.js"></script>
+<script src="/js/angularjs/angular-aria.min.js"></script>
+<script src="/js/angularjs/angular-material.min.js"></script>
+<script src="/js/angularjs/angular-messages.min.js"></script>
+<script src="/js/angularjs/angular-material-icons.min.js"></script>
+
+
+
+</head>
+<div class="carousel slide carousel-fade" data-ride="carousel">
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+		<div class="item active"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</div>
+</div>
+
+<body class="bodyTransparent" ng-controller="loginController">
+
+	<div class="panel panel-default" style="padding-top: 0px; border-color: black;">
+		<div class="panel-body" style="padding: 0px;">
+			<div class="container">
+				<h4 style="color: #white;">Philippines Global Delivery Center</h4>
+			</div>
+
+			<form id='formLogin' th:attr="ng-submit='showWait()'" class="form-signin" th:action="@{/itLogs/login}"
+				method="post">
+				<div id='loginLogo' class="row-fluid user-row">
+					<img src="/images/lg-logo.png" class="img-responsive"
+						alt="Conxole Admin" />
+				</div>
+				<div th:if="${param.error}" class="alert alert-danger"
+					th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}">
+				</div>
+				<div th:if="${param.logout}" class="alert alert-success"
+					th:utext="#{login.message.logout}"></div>
+				<br /> <label for="username" class="sr-only">Username</label> <input
+					type="text" id="username" name="username"
+					title="Input your windows login username in sync with FPI domain." 
+					class="form-control input-sm" value="" placeholder="Username"
+					required="required" autofocus="autofocus" /> <br /> <label
+					for="Password" class="sr-only">Password</label> <input
+					type="password" id="password" name="password"
+					title="Input your windows login password in sync with FPI domain."
+					class="form-control input-sm" value="" placeholder="Password"
+					required="required" /> <br />
+				<md-button class="md-raised btnCustomColor" type="submit" >Login</md-button>
+				<md-button class="md-raised btnCustomColor" id="clearBtn"
+					type="reset">Clear</md-button>
+				<br />
+				<div th:if="${param.error}" class="alert alert-warning"
+					th:utext="#{login.message.forgotPassword}">Please contact
+					your Administrator!</div>
+			</form>
+
+			<h4>
+				<small style="color: black;">Works with <img src="/images/chrome-and-firefox-logos.png" style="width: 50px; height: 22px;"/></small>
+			</h4> 
+			<h5>
+				<small style="color: #cc3a37;">Copyright &copy; 2017 Fujitsu Philippines</small>
+			</h5>
+		</div>
+
+	</div>
+
+	<!-- Site footer -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/js/common/jquery-2.1.3.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/common/bootstrap.min.js"></script>
+	<script src="/js/app/common.js"></script>
+	
+	<script type="text/javascript">                    
+    	$('.carousel').carousel();
+    	
+    	$(document).ready(function() {
+    		$("#clearBtn").click(function(e) {
+    			$(".alert").hide();
+    		});
+    	});
+    </script>
+</body>
+</html>

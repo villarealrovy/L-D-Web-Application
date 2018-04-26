@@ -1,0 +1,157 @@
+employee_no.,username,system_role,full_name,gender,email_account,gdc_name,department,division,LOS
+161937,r.abella,STAFF,"Abella, Rixon Jeuz",male,r.abella@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+140310,t.alba,STAFF,"Alba, Trixie Mhae Anne",female,t.alba@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162101,m.aro,STAFF,"Aro, John Michael",male,m.aro@phfujitsu.com,Philippines,FDC,Apps,BAS
+990887,o.axalan,MANAGER,"Axalan, Orland Gregorio",male,o.axalan.@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153610,s.bautista,STAFF,"Bautista, Sydney Jane",female,s.bautista@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153645,b.borja,STAFF,"Borja, Bryan Jay",male,b.borja@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+161745,s.buitizon,STAFF,"Buitizon, Sherry",female,s.buitizon@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+258874,c.caccam,STAFF,"Caccam, Cherryl",female,c.caccam@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+164283,a.capulong,STAFF,"Capulong, Arjuna",male,a.capulong@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153694,a.cariaga,STAFF,"Cariaga, Achilles",male,a.cariaga@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+953024,a.chamorro,MANAGER,"Chamorro, Maria Ana",female,a.chamorro@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162753,c.chiew,STAFF,"Chiew, Cindy Mae",female,c.chiew@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+149537,c.chua,STAFF,"Chua, Claudette",female,c.chua@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153553,rp.collado,STAFF,"Collado, Rongem",male,rp.collado@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153678,jg.deguzman,MANAGER,"De Guzman, Jambert",male,jg.deguzman@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+227858,a.delacruz,MANAGER,"Dela Cruz, Anna Marie",female,a.delacruz@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162029,e.fabula,STAFF,"Fabula, Ena Lorraine",female,e.fabula@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+161845,c.gaspi,STAFF,"Gaspi, Candice",female,c.gaspi@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162561,a.gonzales,STAFF,"Gonzales, Alfred III",male,a.gonzales@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153545,j.gonzales,STAFF,"Gonzales, Joshua",male,j.gonzales@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+988560,r.latade,MANAGER,"Latade, Realiza",female,r.latade@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+269733,m.lim,STAFF,"Lim, Mark Jude",male,m.lim@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162586,r.limbo,STAFF,"Limbo, Rafael",male,r.limbo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+953121,l.lorenzo,MANAGER,"Lorenzo, Loyce",male,l.lorenzo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+164329,n.lupo,STAFF,"Lupo, Nerisa",female,n.lupo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+216558,g.mabale,MANAGER,"Mabale, Geraldine",female,g.mabale@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+104025,a.mendoza,STAFF,"Mendoza, Ariane Rose",female,a.mendoza@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+160961,r.monte,STAFF,"Monte, Randy",male,r.monte@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162578,m.nakazawa,STAFF,"Nakazawa, Mirei",female,m.nakazawa@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+131433,j.narag,STAFF,"Narag, Jerenn",male,j.narag@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+988111,g.orevillo,MANAGER,"Orevillo, Gem",male,g.orevillo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+154061,b.orobia,STAFF,"Orobia, Billy Joe",male,b.orobia@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+161829,n.panganiban,STAFF,"Panganiban, Nerissa",female,n.panganiban@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+269190,t.panganiban,STAFF,"Panganiban, Teresa",female,t.panganiban@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+154045,v.pineda,STAFF,"Pineda, Vicente Dominic",male,v.pineda@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+106058,c.pua,STAFF,"Pua, Catherine Joy",female,c.pua@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+145129,c.robin,STAFF,"Robin, Cyril Faith",female,c.robin@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+160937,d.sabang,STAFF,"Sabang, Dave Lawrence",male,d.sabang@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+162002,m.sakuma,STAFF,"Sakuma, Maria Thea Eri",female,m.sakuma@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+154194,a.seco,STAFF,"Seco, Avegail",female,a.seco@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+105190,a.serrano_d,MANAGER,"Serrano, Arman",male,a.serrano_d@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+121390,t.tablizo,STAFF,"Tablizo, Thea",female,t.tablizo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+160437,v.tan,STAFF,"Tan, Vivien Jazel",female,v.tan@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+154053,l.tradel,STAFF,"Tradel, Lorenzo III",male,l.tradel@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+154086,y.umayam,STAFF,"Umayam, Ynah Carrielle",female,y.umayam@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+104874,m.valdeo,STAFF,"Valdeo, Marciatoni",male,m.valdeo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+216633,g.witongco,MANAGER,"Witongco, Glenn Mark",male,g.witongco@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+142878,s.andrada,STAFF,"Andrada, Sheena Lei",female,s.andrada@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+269533,j.azanza,STAFF,"Azanza, Johann",male,j.azanza@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+216582,a.cruz,MANAGER,"Cruz, Aristotle",male,a.cruz@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153786,w.delossantos,STAFF,"Delos Santos, Walter",male,w.delossantos@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+160453,j.holgado,STAFF,"Holgado, Jonathan Rae",male,j.holgado@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+153629,c.marcaida,STAFF,"Marcaida, Cymon Nicollo",male,c.marcaida@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+269217,e.rodillas,STAFF,"Rodillas, Elaine",male,e.rodillas@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+164410,m.cahinod,MANAGER,"Cahinod, Mark Steven",male,m.cahinod@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+932230,m.chang,MANAGER,"Chang, Ma-Ann",female,m.chang@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+170647,k.ayeras,STAFF,"Ayeras, Kristoffer Jacob",male,k.ayeras@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+171292,c.laruan,STAFF,"Laruan, Claribelle",female,c.laruan@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+170638,l.ramos,STAFF,"Ramos, Love Joy",female,l.ramos@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+170510,dc.ignacio,STAFF,"Ignacio, Denise Camille ",female,dc.ignacio@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+170683,j.quintia,STAFF,"Quintia, Jan Michael",male,j.quintia@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+172238,a.casugbu,STAFF,"Casugbu, Anna Raisa Criselda",female,a.casugbu@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+172265,r.dedios,STAFF,"De dios, Ralph Darrell",male,r.dedios@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+172374,fr.gonzales,STAFF,"Gonzales, Frederico",male,fr.gonzales@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+118666,e.querido,STAFF,"Querido, Erwin",male,e.querido@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+141761,rp.villareal,STAFF,"Villareal, Rovy Axel ",male,rp.villareal@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+172256,s.guisijan,STAFF,Sonny Guisijan,male,s.guisijan@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173647,l.magsino,STAFF,"Magsino, Leodegario  Jr.",male,l.magsino@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173610,j.sardeng,STAFF,"Sardeng, Joseph",male,j.sardeng@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173547,jl.ramos,STAFF,"Ramos, Jaymie Lou",female,jl.ramos@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+172483,d.caba,STAFF,"Caba, Dennis",male,d.caba@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+987960,h.delrosario,MANAGER,"Del Rosario, Heidi Jane",female,h.delrosario@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+160337,e.ilagan,STAFF,"Ilagan, Eduardo III",male,e.ilagan@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+160802,b.briones,STAFF,"Briones, Barbra Jane ",female,b.briones@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+173629,j.ala,STAFF,"Ala, Jan Philip Dale ",male,j.ala@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+172538,k.buenaseda,STAFF,"Buenaseda, Kimberly May ",female,k.buenaseda@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+172529,b.toraja,STAFF,"Toraja, Briane ",male,b.toraja@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+160810,c.bauyon,STAFF,"Bauyon, Cherry ",female,c.bauyon@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+151045,j.figueroa,STAFF,"Figueroa, Joseph ",male,j.figueroa@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+141978,tc.garcia,STAFF,"Garcia, Tonirose ",female,tc.garcia@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+140345,c.paluyo,STAFF,"Paluyo, Chrislyn ",female,c.paluyo@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+141002,a.landa,STAFF,"Landa, Arveen ",male,a.landa@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+140645,j.belgar,STAFF,"Belgar, Jomari ",male,j.belgar@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+270433,f.ignacio,STAFF,"Ignacio, Franz Irvin ",male,f.ignacio@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+987393,j.lopena,STAFF,"Lopena, Jim ",male,j.lopena@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+106090,j.adelin,STAFF,"Adelin, John Francis ",male,j.adelin@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+141778,j.rocero,STAFF,"Rocero, Jomari",male,j.rocero@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+140353,j.sierra,STAFF,"Sierra, John Paulo ",male,j.sierra@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+142861,d.gardon,STAFF,"Gardon, Dana Ann ",female,d.gardon@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+154161,e.bascon,STAFF,"Bascon, Evelyn ",female,e.bascon@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+160794,pa.reyes,STAFF,"Reyes, Pamela Anne ",female,pa.reyes@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+160902,m.dechosa,STAFF,"Dechosa, Merry Jen ",female,m.dechosa@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+170610,l.santiago,STAFF,"Santiago, Louie Phillip ",male,l.santiago@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+282417,c.sauz,STAFF,"Sauz, Carol ",female,c.sauz@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+281825,d.singian,STAFF,"Singian, Dennis ",male,d.singian@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+134853,e.abraham,STAFF,"Abraham, Ernesto ",male,e.abraham@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+140361,j.delrosario,STAFF,"Del Rosario, Jesamine Joi",female,j.delrosario@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+269841,b.gabat,STAFF,"Gabat, Buena Rhea ",female,b.gabat@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+140337,r.abiertas,STAFF,"Abiertas, Rizzaly",female,r.abiertas@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+269817,j.deguzman,STAFF,"De Guzman, Jayson",male,j.deguzman@ph.fujitsu.com,Philippines,ERP,Apps,BAS
+173774,nw.dy,STAFF,"Dy, Nadine Wendy",female,nw.dy@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+160702,b.aguilar,STAFF,"Aguilar Jr., Bonifacio",male,b.aguilar@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+131574,i.artigo,STAFF,"Artigo, Ivan Benedict",male,i.artigo@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160729,e.balane,STAFF,"Balane, Eldren Rey",male,e.balane@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+131590,f.bayle,STAFF,"Bayle, Franz",male,f.bayle@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+963712,k.buendia,MANAGER,"Buendia, Karen",male,k.buendia@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160737,w.bulauitan,STAFF,"Bulauitan, Wenceslao",male,w.bulauitan@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+104882,r.collado,STAFF,"Collado, Rosemarie",female,r.collado@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+131558,m.cortesiano,STAFF,"Cortesiano, Michael",male,m.cortesiano@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160302,j.dejaresco,STAFF,"Dejaresco, John Carlo ",male,j.dejaresco@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+170174,j.delavega,STAFF,"Dela Vega, Jennifer",female,j.delavega@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+172274,c.ducalang,STAFF,"Ducalang, Celso",male,c.ducalang@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+106109,c.guevara_t,STAFF,"Guevara, Christopher",male,c.guevara_t@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160710,j.mataac,STAFF,"Mataac, John Paulo",male,j.mataac@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160329,g.pareja,STAFF,"Pareja, Gliff Ceasar",male,g.pareja@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+131566,j.sante,STAFF,"Sante, John Patrick",male,j.sante@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+999428,c.lim,MANAGER,"Santos, Charissa",female,c.lim@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+164365,r.serrano,STAFF,"Serrano, Rodolfo",male,r.serrano@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+131525,p.tiquia,STAFF,"Tiquia, Patricia Bettina",female,p.tiquia@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+118066,m.trilles,STAFF,"Trilles, Marvin",male,m.trilles@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173865,l.abulencia,STAFF,"Abulencia, Lemuela",female,l.abulencia@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173747,h.amarles,STAFF,"Amarles, Hyacinth",female,h.amarles@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173674,j.barcenas,STAFF,"Barcenas, Jhunell",male,j.barcenas@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173692,a.batongbaca,STAFF,"Batongbacal, Aevan Camille",female,a.batongbaca@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173874,g.camilo,STAFF,"Camilo, Giann Carlo",male,g.camilo@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173738,j.cochico,STAFF,"Cochico, Joseph Alexander",male,j.cochico@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173729,r.espida,STAFF,"Espida, Richard",male,r.espida@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173601,me.espino,STAFF,"Espino, Marivic",female,me.espino@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173883,k.tolento,STAFF,"Tolento, Krizza",female,k.tolento@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173929,j.sanchez,STAFF,"Sanchez, Jester",male,j.sanchez@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173892,ja.sanchez,STAFF,"Sanchez, John Harvey",male,ja.sanchez@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173765,c.valondo,STAFF,"Valondo, Christian Lois",male,c.valondo@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+988395,m.altoveros,STAFF,"Altoveros, Maria Cariza",female,m.altoveros@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+987979,jr.aquino,MANAGER,"Aquino, Jeraldine",female,jr.aquino@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+216809,m.cajayon,STAFF,"Cajayon, Michael",male,m.cajayon@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+106182,g.david_t,STAFF,"David, Gladys May",female,g.david_t@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160353,z.deguia,STAFF,"De Guia, Zedriz",male,z.deguia@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160845,n.dejesus,STAFF,"De Jesus, Nina",female,n.dejesus@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+104790,r.fontanilla,STAFF,"Fontanilla, Rosario",female,r.fontanilla@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+260174,b.lim,STAFF,"Lim, Belle Winchelle",female,b.lim@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+270233,p.magpantay,STAFF,"Magpantay, Paul Ryan",male,p.magpantay@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+270509,s.mojica,STAFF,"Mojica, Sherielyn",female,s.mojica@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+953164,j.pantig,MANAGER,"Pantig, Jeanette",female,j.pantig@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160310,r.piloto,STAFF,"Piloto, Rosalinda",female,r.piloto@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+260166,mg.singian,STAFF,"Singian, Mary Grace",female,mg.singian@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+999879,j.taopo,STAFF,"Taopo, Joseph",male,j.taopo@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+160745,jr.vasquez,STAFF,"Vasquez, Jazel Roann",female,jr.vasquez@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+120125,e.villalba,STAFF,"Villalba, Erell",male,e.villalba@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+129990,m.vital,STAFF,"Vital, Mark Anthony",male,m.vital@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+271417,c.rivales,STAFF,"Mapula, Cheralyn",female,c.rivales@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+942774,v.deguzman,STAFF,"de Guzman, Esperanza Virginia",female,v.deguzman@ph.fujitsu.com,Philippines,Retail Services,Apps,BAS
+173992,e.jamilan,STAFF,"Jamilan, Evijoy",female,e.jamilan@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+174110,p.tanmo,STAFF,"Tanmo, Phyllis Kimberly",female,p.tanmo@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173065,e.andrade,STAFF,"Andrade, Edralyn Lorenz",female,e.andrade@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173010,ar.bello,STAFF,"Bello, April Rose",female,ar.bello@ph.fujitsu.com,Philippines,FDC,Apps,BAS
+173047,ad.sarmiento,STAFF,"Sarmiento, Auvy",female,ad.sarmiento@ph.fujitsu.com,Philippines,FDC,Apps,BAS

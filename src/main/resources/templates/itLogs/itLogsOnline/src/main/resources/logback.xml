@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+  <appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>${user.dir}/ITLogsAppLog/AppLog.log</File>  
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> 
+      <!-- daily rollover --> 
+      <fileNamePattern>${user.dir}/ITLogsAppLog/AppLog.%d{yyyy-MM-dd}.log</fileNamePattern> 
+      <!-- keep 7 days worth of history --> 
+      <maxHistory>7</maxHistory> 
+    </rollingPolicy>     
+    <encoder>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level  %logger{36} - %msg%n</Pattern>
+    </encoder>
+  </appender>
+  
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+      <encoder>
+          <charset>UTF-8</charset>
+          <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</Pattern>
+      </encoder>
+  </appender>
+  
+  <logger name="com.fujitsu" level="DEBUG">
+      <appender-ref ref="APP_LOG"/>
+  </logger>
+
+  <logger name="org.springframework.boot.autoconfigure.security" level="INFO">
+      <appender-ref ref="APP_LOG"/>
+  </logger>
+  
+  <logger name="com.fujitsu" level="INFO">
+      <appender-ref ref="APP_LOG"/>
+  </logger>  
+    
+</configuration>

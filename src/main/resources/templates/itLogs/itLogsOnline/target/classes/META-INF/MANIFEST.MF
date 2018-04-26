@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ITLogs
+Implementation-Version: OnlineModule
+Built-By: t.alba
+Implementation-Vendor-Id: com.fujitsu
+Build-Jdk: 1.8.0_20
+Implementation-URL: http://projects.spring.io/spring-boot/ITLogs/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

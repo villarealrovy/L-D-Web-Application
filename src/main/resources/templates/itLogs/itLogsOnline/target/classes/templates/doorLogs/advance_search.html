@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    ng-app="mainApp">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="/images/title-logo.ico" />
+    <title>IT Logs System - Advance Search</title>
+
+	<!-- Bootstrap -->
+    <link href="/css/common/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/common/sticky-footer.css" rel="stylesheet"/>
+    <link href="/css/app/custom.css" rel="stylesheet"/>
+    <link href="/css/common/signin.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>  
+    <link href="/css/itlogs.css" rel="stylesheet"/>
+    <link href="/js/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet"/>
+    <link href="/js/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" rel="stylesheet"/>
+    <link href="/css/angular-material.css" rel="stylesheet" />
+    <link href="/css/magic.css" rel="stylesheet" />    
+    
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/js/common/jquery-2.1.3.min.js"></script>
+	<script src="/js/moment.js" type="text/javascript"></script>
+	<script src="/js/jquery-ui-1.12.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="/js/angularjs/angular.min.js" type="text/javascript"></script>
+	<script src="/js/angularjs/angular-file-saver.bundle.min.js"></script>
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/common/bootstrap.min.js"></script>
+	<script src="/js/app/common.js"></script>
+	<script src="/js/app/mainApp.js"></script>
+	<script src="/js/app/doorLogsAdvanceSearchController.js"></script>
+    <script src="/js/app/doorLogsApplicationWebService.js"></script>
+    <script src="/js/angularjs/angular-animate.min.js"></script>
+    <script src="/js/angularjs/angular-aria.min.js"></script>
+    <script src="/js/angularjs/angular-material.min.js"></script>
+    <script src="/js/angularjs/angular-messages.min.js"></script>
+    <script src="/js/angularjs/angular-material-icons.min.js"></script>
+	<script src="/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    
+</head>
+
+<body ng-controller="doorLogsAdvanceSearchController">
+<div class="container fixedHeader">
+	<div th:replace="fragments/header :: main-header"></div>
+    <div th:replace="fragments/header :: user-header"></div>
+    </div>
+    	<div class="bodyMargin">
+<!--     <div th:replace="fragments/header :: user-header"></div> -->
+    <div class="background"></div>
+    <div class="container-fluid" style="padding-top: 50px;">
+    <div class="row">
+    <div class="col-md-12">
+    	<form class="form-horizontal" name="searchForm" id="searchForm">
+    		<div class="panel panel-default panel-transparent" id="searchPanel">
+    			<div class="panel-heading label1">Advance Search</div>
+    			<div class="panel-body">
+    				<table class="table table-condensed borderless">
+	                    <tr>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="employeeName">Employee Name :</label>
+	                        </td>
+	                        <td class="col-md-3">
+	                        	<script th:inline="javascript">
+		                        	/*<![CDATA[*/
+		                        	
+		                        	var employeeList = [[${employeeList}]];
+		                        	
+		                        	var employeeNameList = [];
+		                        	
+		                        	for(i=0; i<employeeList.length; i++) {
+		                        		var employeeName = employeeList[i].fullname;
+		                        		employeeNameList.push(employeeName);
+		                        	}
+		                        	
+		                        	var employeeName = [[${session.userInfo.fullname}]];
+		                        	
+		                        	/*]]>*/
+	                        	</script>
+	                            <input type="text" class="form-control" ng-model="employeeName" 
+	                            	ng-class="{highlight:searchForm.employeeName.$error.required || searchForm.employeeName.$error.maxlength}"
+	                            	ng-maxlength="100" id="employeeName" name="employeeName" required="required"/>
+	                            <span ng-show="searchForm.employeeName.$error.required" class="err" ng-cloak=''>Required</span>
+	                            <input type="text" class="form-control" ng-model="employeeID" id="employeeID" style="display:none;"/>
+	                            <input type="text" class="form-control" ng-model="employeeRole" id="employeeRole" style="display:none;"/>
+	                        </td>
+	                        <td class="col-md-1"></td>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="searchCategory">Search Category :</label>
+	                        </td>
+	                        <td class="col-md-2">
+	                            <select class="form-control" ng-model="searchCategory">
+	                                <option value="Late Entries">Late Entries</option>
+	                                <option value="No Entries">No Entries</option>
+	                            </select>
+	                        </td>    
+	                        <td class="col-md-1">
+	                            <div class="checkbox label2 includeWeekends" ng-show="searchCategory=='No Entries'" ng-cloak=''>
+	                                <label><input type="checkbox" ng-model="isWeekendsIncluded"/>Include Weekends</label>
+	                            </div>
+	                        </td>
+	                        <td class="col-md-1"></td>
+	                    </tr>
+	                    <tr>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="employeeNo">Employee No:</label>
+	                        </td>
+	                        <td class="col-md-3">
+	                            <input type="text" class="form-control" ng-model="employeeNo" id="employeeNo" readonly="readonly"/>
+	                        </td>
+	                        <td class="col-md-1"></td>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="fromDate">From<br/>(DD/MM/YYYY HH:MM) :</label>
+	                        </td>
+	                        <td class="col-md-2">
+	                            <div class="input-group date datepicker" id="fromDatepicker">
+	                                <input type="text" class="form-control" id="fromDate" 
+	                                		ng-model="fromDate" style="background-color: #FFFFFF;" required="required"/>
+	                                <span class="input-group-addon">
+	                                    <span class="glyphicon glyphicon-calendar"></span>
+	                                </span>
+	                            </div>
+	                            <span id='fromDateSpanReq' ng-show="searchForm.fromDate.$error.required" class="err" ng-cloak=''>Required</span>
+	                        </td>    
+	                        <td class="col-md-1">
+	                            <div class="input-group timepicker" id="fromTimepicker" style="cursor: pointer;" 
+	                            	ng-show="searchCategory=='Late Entries'" ng-cloak=''>
+	                                <input type="text" class="form-control" id="fromTime" maxlength="5"
+	                                		ng-model="fromTime" ng-class="{highlight:searchForm.fromTime.$error.required || searchForm.fromTime.$error.maxlength}"
+			                            	ng-maxlength="5" style="background-color: #FFFFFF;" required="required"/>
+	                                <span class="input-group-addon">
+	                                    <span class="glyphicon glyphicon-time"></span>
+	                                </span>
+	                                
+	                            </div>
+	                            <span id='fromTimeSpanReq' ng-show="searchForm.fromTime.$error.required" class="err" ng-cloak=''>Required</span>
+	                        </td>
+	                         <td class="col-md-1"></td>
+	                    </tr>
+	                    <tr>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="employeeUserName">User Name :</label>
+	                        </td>
+	                        <td class="col-md-3 label2">
+	                            <label id="employeeUserName"></label>
+	                        </td>
+	                        <td class="col-md-1"></td>
+	                        <td class="col-md-2 text-left label2" style="padding-left:1em;">
+	                            <label for="fromDate">To<br/>(DD/MM/YYYY) :</label>
+	                        </td>
+	                        <td class="col-md-2">
+	                            <div class="input-group date datepicker" id="toDatepicker">
+	                                <input type="text" class="form-control" id="toDate"
+	                                	ng-model="toDate" style="background-color: #FFFFFF;" required="required"/>
+	                                <span class="input-group-addon">
+	                                    <span class="glyphicon glyphicon-calendar"></span>
+	                                </span>
+	                            </div>
+	                            <span id='toDateSpanReq' ng-show="searchForm.toDate.$error.required" class="err" ng-cloak=''>Required</span>
+	                        </td>    
+	                        <td class="col-md-1"></td>
+	                         <td class="col-md-1"></td>
+	                    </tr>
+	                </table>
+	                
+	                <div class="row">
+                        <div class="col-md-12" align="right">
+                            <md-button class="md-raised btnCustomColor" id="btnExport" 
+                        		ng-show="dataLate &amp;&amp; (employeeRole == 'MANAGER')" ng-click="exportToFile(expName,dataLate,lateEntries,fromTime)" ng-cloak=''>Export Report</md-button>
+                            <md-button class="md-raised btnCustomColor" ng-click="search(employeeID, fromDate, fromTime, toDate, isWeekendsIncluded)">Search</md-button>
+                            <md-button class="md-raised btnCustomColor" id="btnClear" ng-click="clear()">Clear</md-button>
+                            <md-button class="md-raised btnCustomColor" id="btnBack" ng-click="showWait()">Back</md-button> 
+                                                 
+                        </div>
+                    </div>
+    			</div>
+    		</div>
+    		
+    		<!-- Info Message -->
+            <div class="alert alert-info" ng-show="hasInfo" ng-cloak=''>
+                {{infoMessage}}<a href="#" class="close" ng-click="hasInfo=false;">&times;</a>
+            </div>
+            <!-- Error Message -->
+            <div class="alert alert-danger" ng-show="hasError" ng-cloak=''>
+            	<a href="#" class="close" ng-click="hasError=false;">&times;</a>
+                <ul>
+                	<li ng-repeat="x in errorMessages">{{x.errorMessage}}</li>
+                </ul>
+            </div>
+            
+			<!-- Table for Late Entries -->
+<!--             <div class="vertical_scroll"> -->
+			<label ng-show="dataLate &amp;&amp; (employeeRole == 'MANAGER')" ng-cloak=''>Check the date you want to include in the notice.</label>
+            <table class="table table-condensed table-bordered data_table"  ng-show="dataLate" ng-cloak=''>
+            	<thead class="data_table_header">
+                    <tr>
+                        <th class="col-md-2">Month Year</th>
+                        <th class="col-md-1">Days of Late</th>
+                        <th class="col-md-2">Total Minutes of Late</th>
+                        <th class="col-md-2">Day of the Week</th>
+                        <th colspan="3">Days with Late Entries</th>
+                    </tr>
+                </thead>
+                <tbody class="data_table_body" ng-repeat="x in lateEntries">
+                	<tr ng-class="{data_table_tr_even:x.count % 2 == 0, data_table_tr_odd:x.count % 2 != 0}">
+                         <td>{{ x.monthYear }}</td>
+                         <td>{{ x.daysOfLates }}</td>
+                         <td>{{ x.totalMinutesOfLates }}</td>
+                         <td>{{ x.dayofTheWeek }}</td>
+                         <td>
+                             <span class="glyphicon img_pointer toggler" ng-class="{'glyphicon-plus' : !toggle,'glyphicon-minus' : toggle}"
+                             	ng-click="displayDetail($index); toggle = !toggle"></span>
+                         </td>
+                         <td><input type="checkbox" ng-model="x.includeDate" ng-show="dataLate &amp;&amp; (employeeRole == 'MANAGER')"/></td>
+                         <td>{{ x.daysWithLateEntries }}</td>
+                     </tr>
+                     <tr ng-class="{data_table_tr_even:x.count % 2 == 0, data_table_tr_odd:x.count % 2 != 0}" 
+                     	ng-show="data_{{$index}}" ng-cloak=''>
+                          <td colspan="4"></td>
+                          <td></td>
+                          <td colspan="2">
+                              <table class="table table-condensed table-bordered data_table_sub">
+                                  <thead>
+                                      <tr>
+                                          <th>IN</th>
+                                          <th>OUT</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td ng-repeat="y in x.daysWithLateEntriesDetail">{{ y }}</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                      </tr>
+                </tbody>
+            </table>
+<!--             </div> -->
+            
+            <!-- Table for No Entries -->
+<!--             <div class="vertical_scroll"> -->
+            <table class="table table-condensed table-bordered data_table"  ng-show="dataNo" ng-cloak=''>
+            	<thead class="data_table_header">
+                    <tr>
+                        <th class="col-md-4">Month Year</th>
+                        <th class="col-md-4">Days of the Week</th>
+                        <th colspan="2">Days with No Entries</th>
+                    </tr>
+                </thead>
+                <tbody class="data_table_body">
+                	<tr ng-class="{data_table_tr_even:x.count % 2 == 0}" ng-repeat="x in noEntries">
+                      	<td>{{ x.monthYear }}</td>
+                      	<td>{{ x.dayofTheWeek }}</td>
+                      	<td>{{ x.daysWithNoEntry }}</td>
+                  	</tr>
+                 </tbody>
+            </table>
+<!--             </div> -->
+    	</form>
+    </div>
+    </div>
+    </div>
+    </div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+
+<script>
+$(document).ready(function() {
+	// uses cdata for use of special character logical operators
+	/*<![CDATA[*/
+
+    console.log("Advance Search : Start - Script Log");
+    
+    // Load User's information
+    $("#employeeName").val(employeeName);
+    $("#employeeName").trigger("input");
+    var index = employeeNameList.indexOf($("#employeeName").val());
+	$("#employeeID").val(employeeList[index].id);
+	$("#employeeID").trigger("input");
+	//var empNo = pad(employeeList[index].empNo); //no need to pad, this is String now
+	var empNo = employeeList[index].empNo;
+	$("#employeeNo").val(empNo);
+	$("#employeeNo").trigger("input");
+	$("#employeeUserName").text(employeeList[index].username);
+	var role = employeeList[index].sys_role;
+	console.log(role);
+	if(role == "STAFF") {
+		$("#employeeName").attr('readonly', true);
+	}
+	$("#employeeRole").val(role);
+	$("#employeeRole").trigger("input");
+	
+    // TODO : Apply autocomplete and autofill
+    $("#employeeName").autocomplete({
+        source: employeeNameList
+    });
+    
+    $("#employeeName").change(function() {
+    	if($("#employeeName").val() == "") {
+    		$("#employeeName").val(employeeName);
+    		$("#employeeName").trigger("input");
+    	}
+    	
+    	var index = employeeNameList.indexOf($("#employeeName").val());
+    	console.log("Employee Name index : " + index);
+    	
+    	if(index == -1) {
+    		//enforce selection by default if keyed is not found
+    		//$("#employeeID").val("null");
+    		//$("#employeeNo").val("");
+    		//$("#employeeUserName").text("");
+    		
+    		$("#employeeName").val(employeeName);
+    		$("#employeeName").trigger("input");
+    		index = employeeNameList.indexOf($("#employeeName").val());
+    		
+    	} 
+    	//else {
+    		$("#employeeID").val(employeeList[index].id);
+        	//var empNo = pad(employeeList[index].empNo); //no need to pad, this is String now
+        	var empNo = employeeList[index].empNo;
+        	$("#employeeNo").val(empNo);
+        	$("#employeeUserName").text(employeeList[index].username);
+    	//}
+    	$("#employeeID").trigger("input");
+    	$("#employeeNo").trigger("input");
+    });
+    
+    function pad(num) {
+        var s = "000000" + num;
+        return s.substr(s.length - 6);
+    }
+    
+ 	//<!-- Start of Date-Time Picker Configuration -->
+ 	//<!-- date format display is DD/MM/YYYY but it can accept
+ 	//     JS Long Date "Mar 25 2015" or JS ISO Date "2015-03-25" (The International Standard) -->
+	$(".datepicker").datetimepicker({
+		format: "DD/MM/YYYY",
+		extraFormats: ["MMM DD YYYY", "YYYY-MM-DD", "DD-MM-YYYY"]
+	});    
+
+    
+    var d = new Date();
+    
+    var day = 1;
+    var month = d.getMonth();
+    var year = d.getFullYear();
+    console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year + "07:00");
+    $("#fromDatepicker").data("DateTimePicker").defaultDate(new Date(year, month, day, 10, 00));
+    $("#fromDate").trigger("input");
+    
+    $(".timepicker").datetimepicker({
+        format: "HH:mm"
+    });
+    $("#fromTimepicker").data("DateTimePicker").defaultDate(new Date(year, month, day, 10, 00));
+    $("#fromTime").trigger("input");
+    
+    var day = d.getDate();
+    console.log("To - Default Date : " + day + "/" + (month+1) + "/" + year);
+    $("#toDatepicker").data("DateTimePicker").defaultDate(new Date(year, month, day));
+    $("#toDate").trigger("input");
+    //<!-- End of Date-Time Picker Configuration -->
+    
+	var isFromDateKeyed = false;
+	var isToDateKeyed = false;
+	var fromDateUserInput = $("#fromDate").val();
+	var toDateUserInput = $("#toDate").val();
+
+	$("#fromDate").on('keyup', function(e) {
+		isFromDateKeyed = true;
+		fromDateUserInput = $("#fromDate").val();
+		
+		if (isEmpty(fromDateUserInput)) {
+			$('#fromDate').addClass('highlight');
+			$('#fromDateSpanReq').removeClass('ng-hide');
+		}
+		else {
+			$('#fromDate').removeClass('highlight');
+			$('#fromDateSpanReq').addClass('ng-hide');
+		}
+	});
+	
+	$("#toDate").on('keyup', function(e) {
+		isToDateKeyed = true;
+		toDateUserInput = $("#toDate").val();
+		
+		if (isEmpty(toDateUserInput)) {
+			$('#toDate').addClass('highlight');
+			$('#toDateSpanReq').removeClass('ng-hide');
+		}
+		else {
+			$('#toDate').removeClass('highlight');
+			$('#toDateSpanReq').addClass('ng-hide');
+		}
+	});	
+	
+	$("#fromDatepicker").datetimepicker().on("dp.change", function(e){
+		
+		if (isFromDateKeyed) {
+			console.log("fromDatepicker user input:" + fromDateUserInput);
+			
+			if (e.date != false) {
+		    	console.log("fromDatepicker dp.change date now:" + e.date.format('DD/MM/YYYY'));
+			}
+			
+			try {
+				//try custom date format first
+				var userDateObj = moment(fromDateUserInput, 'DD/MM/YYYY').toDate();
+				var isMatchTest = false;
+				
+				if (userDateObj == 'Invalid Date') {
+					// this is now JS format date
+					userDateObj = new Date(fromDateUserInput);
+					//console.log('reformatting');
+				} else {
+					isMatchTest = true;
+				}
+				
+				//console.log("fromDatepicker user format:" + moment(userDateObj).format('DD/MM/YYYY') );
+				if (e.date != false && (!isEmpty(fromDateUserInput))
+						&& (fromDateUserInput.length < 6 
+						     || moment(userDateObj).format('DD/MM/YYYY') !== e.date.format('DD/MM/YYYY')
+						     || (isMatchTest && fromDateUserInput.match(/[a-z]/i)) )
+					) {			
+					//date is validated
+					showInvalidDateAlert(fromDateUserInput);
+
+					var d = new Date();
+					
+					var day = 1;
+					var month = d.getMonth();
+					var year = d.getFullYear();
+					//console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year);
+					$("#fromDatepicker").data("DateTimePicker").date(new Date(year, month, day, 07, 00));
+					$("#fromDate").val("");
+					$("#fromDate").trigger("input");
+					
+					$('#fromDate').addClass('highlight');
+					$('#fromDateSpanReq').removeClass('ng-hide');				
+				}
+				
+			} catch(error) {
+				console.log("fromDatepicker:error->" + error);
+			}
+		} else {
+			$('#fromDate').removeClass('highlight');
+			$('#fromDateSpanReq').addClass('ng-hide');
+		}		
+		
+		
+	    isFromDateKeyed = false;
+	    
+	}).on("dp.error", function(e){
+		
+		if (isFromDateKeyed) {
+			
+			console.log("dp.error fromDatepicker user input:" + fromDateUserInput);
+			showInvalidDateAlert(fromDateUserInput);
+			
+			var d = new Date();
+			
+			var day = 1;
+			var month = d.getMonth();
+			var year = d.getFullYear();
+			//console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year);
+			$("#fromDatepicker").data("DateTimePicker").date(new Date(year, month, day, 07, 00));
+			$("#fromDate").val("");
+			$("#fromDate").trigger("input");
+			
+			$('#fromDate').addClass('highlight');
+			$('#fromDateSpanReq').removeClass('ng-hide');
+		}
+		
+	    isFromDateKeyed = false;
+	});
+	
+	
+	$("#toDatepicker").datetimepicker().on("dp.change", function(e){
+		
+		if (isToDateKeyed) {
+			console.log("toDatepicker user input:" + toDateUserInput);
+			
+			if (e.date != false) {
+		    	console.log("toDatepicker dp.change date now:" + e.date.format('DD/MM/YYYY'));
+			}
+			
+			try {
+				//try custom date format first
+				var userDateObj = moment(toDateUserInput, 'DD/MM/YYYY').toDate();
+				var isMatchTest = false;
+				
+				if (userDateObj == 'Invalid Date') {
+					// this is now JS format date
+					userDateObj = new Date(toDateUserInput);
+					//console.log('reformatting');
+				} else {
+					isMatchTest = true;
+				}
+				
+				//console.log("toDatepicker user format:" + moment(userDateObj).format('DD/MM/YYYY') );
+				if (e.date != false && (!isEmpty(toDateUserInput))
+						&& (toDateUserInput.length < 6 
+						     || moment(userDateObj).format('DD/MM/YYYY') !== e.date.format('DD/MM/YYYY')
+						     || (isMatchTest && toDateUserInput.match(/[a-z]/i)) )
+					) {			
+					//date is validated
+					showInvalidDateAlert(toDateUserInput);
+
+					var d = new Date();
+					
+					var day = d.getDate();
+					var month = d.getMonth();
+					var year = d.getFullYear();
+					//console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year);
+					$("#toDatepicker").data("DateTimePicker").date(new Date(year, month, day, 07, 00));
+					$("#toDate").val("");
+					$("#toDate").trigger("input");
+					
+					$('#toDate').addClass('highlight');
+					$('#toDateSpanReq').removeClass('ng-hide');				
+				}
+				
+			} catch(error) {
+				console.log("toDatepicker:error->" + error);
+			}
+		} else {
+			$('#toDate').removeClass('highlight');
+			$('#toDateSpanReq').addClass('ng-hide');
+		}		
+		
+		
+		isToDateKeyed = false;
+	    
+	}).on("dp.error", function(e){
+		
+		if (isToDateKeyed) {
+			
+			console.log("dp.error toDatepicker user input:" + toDateUserInput);
+			showInvalidDateAlert(toDateUserInput);
+			
+			var d = new Date();
+			
+			var day = d.getDate();
+			var month = d.getMonth();
+			var year = d.getFullYear();
+			//console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year);
+			$("#toDatepicker").data("DateTimePicker").date(new Date(year, month, day, 07, 00));
+			$("#toDate").val("");
+			$("#toDate").trigger("input");
+			
+			$('#toDate').addClass('highlight');
+			$('#toDateSpanReq').removeClass('ng-hide');
+		}
+		
+		isToDateKeyed = false;
+	});
+	
+	
+	 $("#fromDatepicker").focusout(function() {
+		 $("#fromDate").trigger("input");
+		 isFromDateKeyed = false;
+		 
+		 if (isEmpty($("#fromDate").val())) {
+			$('#fromDate').addClass('highlight');
+			$('#fromDateSpanReq').removeClass('ng-hide');
+		 } else {
+			$('#fromDate').removeClass('highlight');
+			$('#fromDateSpanReq').addClass('ng-hide'); 
+		 }
+
+	 });
+	 
+	 $("#toDatepicker").focusout(function() {
+	    $("#toDate").trigger("input");
+	    isToDateKeyed = false;
+	    
+	    if (isEmpty($("#toDate").val())) {
+			$('#toDate').addClass('highlight');
+			$('#toDateSpanReq').removeClass('ng-hide');
+		} else {
+			$('#toDate').removeClass('highlight');
+			$('#toDateSpanReq').addClass('ng-hide'); 
+		}
+	    
+	 });    
+    
+    
+	$("#fromTimepicker").focusout(function() {
+    	$("#fromTime").trigger("input");
+    	
+    	if (isEmpty($("#fromTime").val())) {
+			$('#fromTime').addClass('highlight');
+			$('#fromTimeSpanReq').removeClass('ng-hide');
+		}
+		else {
+			$('#fromTime').removeClass('highlight');
+			$('#fromTimeSpanReq').addClass('ng-hide');
+		}
+    });
+    
+	$("#fromTime").on('keyup', function(e) {
+				
+		if (isEmpty($("#fromTime").val())) {
+			$('#fromTime').addClass('highlight');
+			$('#fromTimeSpanReq').removeClass('ng-hide');
+		}
+		else {
+			$('#fromTime').removeClass('highlight');
+			$('#fromTimeSpanReq').addClass('ng-hide');
+		}
+	});
+    
+    //<!-- Start : Button Functionalities -->
+    $("#btnClear").click(function(e) {
+    	console.log("Clear");
+    	// Load User's information
+        $("#employeeName").val(employeeName);
+        $("#employeeName").trigger("input");
+		$("#employeeName").blur();
+        
+        var index = employeeNameList.indexOf($("#employeeName").val());
+    	$("#employeeID").val(employeeList[index].id);
+    	$("#employeeID").trigger("input");
+    	//var empNo = pad(employeeList[index].empNo); //no need to pad, this is String now
+    	var empNo = employeeList[index].empNo;
+    	$("#employeeNo").val(empNo);
+    	$("#employeeNo").trigger("input");
+    	$("#employeeUserName").text(employeeList[index].username);
+    	
+        var d = new Date();
+        var day = 1;
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        console.log("From - Default Date : " + day + "/" + (month+1) + "/" + year + "10:00");
+        $("#fromDatepicker").data("DateTimePicker").date(new Date(year, month, day, 10, 00));
+        $("#fromDate").trigger("input");
+        $("#fromTimepicker").data("DateTimePicker").date(new Date(year, month, day, 10, 00));
+        $("#fromTime").trigger("input");
+        
+        var day = d.getDate();
+        console.log("To - Default Date : " + day + "/" + (month+1) + "/" + year);
+        $("#toDatepicker").data("DateTimePicker").date(new Date(year, month, day));
+        $("#toDate").trigger("input");
+        
+        $('#fromDate').removeClass('highlight');
+		$('#fromDateSpanReq').addClass('ng-hide');
+		$('#toDate').removeClass('highlight');
+		$('#toDateSpanReq').addClass('ng-hide');
+		$('#fromTime').removeClass('highlight');
+		$('#fromTimeSpanReq').addClass('ng-hide');
+        
+    });
+    
+    $("#btnBack").click(function(e) {
+    	
+		var delayMillis = 250; //1 second
+
+		setTimeout(function() {
+		  //your code to be executed after 1 second
+			window.location.href = "search";
+		}, delayMillis);
+    	
+    	
+    });
+    
+	function showInvalidDateAlert(dateUserInput) {
+		
+		if (isEmpty(dateUserInput)) {
+			dateUserInput = '<Empty>';
+		}
+		
+		var guide = "Invalid date input: '" +  dateUserInput + "' . "
+		+ "Required Date Format is DD/MM/YYYY and acceptable format is also "
+		+ "Long Date 'Mar 25 2015' or ISO Date '2015-03-25'"
+
+		var scope = angular.element(document.getElementById('fromDate')).scope();
+		
+		var returnData = {
+			"status" : false,
+			"message": guide
+		};
+		
+		scope.$apply(function(){
+			scope.displayMessageAlertFromJS(returnData);				
+		});
+	};
+    
+    //<!-- End : Button Functionalities -->
+    
+	// added animation
+	//set timer to 2 seconds, after that, load the magic animation and repeat forever
+	var rotateMagic = 0;
+	setInterval(function(){
+		
+		if (rotateMagic === 0) {
+			$('#sysLogo').toggleClass('magictime perspectiveLeftReturn', true);
+			$('#sysLogo').toggleClass('swashIn', false);
+			$('#sysLogo').toggleClass('vanishIn', false);
+			$('#sysLogo').toggleClass('slideLeftReturn', false);			
+			rotateMagic = 1;
+			
+		} else if (rotateMagic === 1) {
+			$('#sysLogo').toggleClass('magictime swashIn', true);
+			$('#sysLogo').toggleClass('perspectiveLeftReturn', false);
+			$('#sysLogo').toggleClass('vanishIn', false);
+			$('#sysLogo').toggleClass('slideLeftReturn', false);
+			rotateMagic = 2;
+			
+		} else if (rotateMagic === 2) {
+			$('#sysLogo').toggleClass('magictime vanishIn', true);
+			$('#sysLogo').toggleClass('swashIn', false);
+			$('#sysLogo').toggleClass('perspectiveLeftReturn', false);
+			$('#sysLogo').toggleClass('slideLeftReturn', false);
+			rotateMagic = 3;
+		} else {
+			$('#sysLogo').toggleClass('magictime slideLeftReturn', true);
+			$('#sysLogo').toggleClass('swashIn', false);
+			$('#sysLogo').toggleClass('perspectiveLeftReturn', false);
+			$('#sysLogo').toggleClass('vanishIn', false);
+			rotateMagic = 0;
+		}
+		
+	}, 2500 );
+	
+
+	//set timer to 30 seconds, after that, load the magic animation and repeat forever
+	setInterval(function(){
+		
+		$('#sysHeadLine').toggleClass('magictime slideRightReturn');
+			
+	}, 30000 );
+	
+	//set timer to 10 seconds, after that, load the magic animation and repeat forever
+/* 	setInterval(function(){ 
+		$('#sysUserLine').toggleClass('magictime swashIn');
+		
+	}, 10000 ); */
+    
+    console.log("Advance Search : End - Script Log");
+});
+
+
+/*]]>*/
+</script>
+
+</html>

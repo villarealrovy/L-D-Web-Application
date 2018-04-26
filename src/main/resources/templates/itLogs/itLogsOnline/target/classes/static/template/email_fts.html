@@ -1,0 +1,82 @@
+<md-dialog aria-label="Sample" class="emailFtsDialog"
+	ng-controller="doorLogsNormalSearchController">
+
+<form>
+	<div class="panel panel-default panel-transparent">
+		<div class="panel-heading label1">
+			<div class="container showFtsPanelContainer">
+				<div class="col-md-10 col-sm-10 genericPad">
+					<h3 class="panel-title emailFtsPanelTitle">Email FTS</h3>
+				</div>
+
+				<div class="col-md-2 col-sm-2 genericPad">
+					<md-button class="md-icon-button" ng-click="hideFts()">
+					<ng-md-icon class="btnClose" icon="close"></md-button>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="panel-body">
+			<br />
+			<div>
+				<div class="col-md-5 col-sm-5 genericPad label1">
+					<p>To:</p>
+				</div>
+				<div class="col-md-7 col-sm-7 genericPad">
+					<input class="form-control" type="text" id="emailApprover"
+						ng-model="emailApprover">
+						
+				</div>
+				<br/>
+			</div>
+			<br/>
+			<div>
+				<div class="col-md-5 col-sm-5 genericPad">
+					<p class="label2">Subject: [PRECEDA REQUEST]</p>
+				</div>
+				<div class="col-md-7 col-sm-7 genericPad">
+					<select class="form-control" id="subjectFTS" ng-model="subjectFTS">
+						<option value="FTS - System Error">FTS - System Error</option>
+						<option value="FTS - Mismatched (Time IN&OUT)">FTS -
+							Mismatched (Time IN&OUT)</option>
+						<option value="FTS - Late Notice (Adjustment Shift/Swap)">FTS
+							- Late Notice (Adjustment Shift/Swap)</option>
+						<option value="FTS - OT">FTS - OT</option>
+						<option value="FTS - WFH">FTS - WFH</option>
+						<option value="FTS - Training">FTS - Training</option>
+						<option value="FTS - Dispatched">FTS - Dispatched</option>
+						<option value="FTS - New Hire">FTS - New Hire</option>
+						<option value="FTS - Forgot ID">FTS - Forgot ID</option>
+					</select>
+				</div>
+				<br/>
+			</div>
+			<br /> <br />
+			<div>
+				<textarea class="emailTextArea" ng-model="message_me"></textarea>
+				<br /> <br />
+
+				<ng-md-icon icon="attach_file" size="15">transaction_{{currentUserName}}.cs</ng-md-icon>
+				<span class="label2">transaction_{{currentUserName}}.csv</span>
+			</div>
+		</div>
+		<div class="panel-footer showFtsButton label2">
+			<md-button class="md-raised btnCustomColor" id="sendFts"
+				ng-click="sendEmailFts($event, message_me)">Send</md-button>
+			<md-button class="md-raised btnCustomColor" id="backFts"
+				ng-click="backFts($event)">Back</md-button>
+
+		</div>
+	</div>
+</form>
+</md-dialog>
+
+<script>
+	$(".dropdown-menu li a").click(function() {
+
+		$(this).parents(".btn-group").find('.selection').text($(this).text());
+		$(this).parents(".btn-group").find('.selection').val($(this).text());
+
+	});
+</script>

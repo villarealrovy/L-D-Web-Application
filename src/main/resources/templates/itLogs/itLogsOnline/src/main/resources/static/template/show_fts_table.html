@@ -1,0 +1,59 @@
+<md-dialog aria-label="Sample" class="showFtsDialog"
+	ng-controller="doorLogsNormalSearchController">
+
+<div class="panel panel-default showFtsPanel panel-transparent">
+	<div class="panel-heading label1">
+
+		<div class="container showFtsPanelContainer">
+
+			<div class="col-md-10 col-sm-10 genericPad">
+				<h3 class="panel-title showFtsPanelTitle">
+					FTS Summary <br /> <br /> <small class='pull-left'
+						style="font-size: 60%; color: #F6F5F5">Note: Computed
+						Duration included break times.</small>
+				</h3>
+			</div>
+
+			<div class="col-md-2 col-sm-2 genericPad">
+				<md-button class="md-icon-button" ng-click="hideFts()">
+				<ng-md-icon class="btnClose" icon="close"></md-button>
+			</div>
+		</div>
+
+	</div>
+	<div class="panel-body showFtsPanelBody">
+		<div ng-repeat="x in selectedFts">
+
+			<table class="table table-condensed table-bordered data_table"
+				id="allEntries">
+				<thead class="data_table_header">
+					<tr>
+						<th colspan="3">{{x.date}}</th>
+					</tr>
+				</thead>
+				<tbody class="data_table_tr_odd" id="entryInfo">
+					<tr>
+						<td>Time In:</td>
+						<td>{{x.timeIn}}</td>
+						<td rowspan="2"><br />{{x.totalHours}}</td>
+					</tr>
+					<tr>
+						<td>Time Out:</td>
+						<td>{{x.timeOut}}</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+	<div class="panel-footer showFtsButton label2">
+		<span>Are you sure you want to send an FTS?</span> <br /> <br />
+		<md-button class="md-raised btnCustomColor" id="yesFts"
+			ng-click="showEmailFts($event)">Yes</md-button>
+		<md-button class="md-raised btnCustomColor" id="noFts"
+			ng-click="hideFts()">No</md-button>
+		<md-button class="md-raised btnCustomColor" id="saveOnlyFts"
+			ng-click="exportFts()">Save Only</md-button>
+	</div>
+</div>
+</md-dialog>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <!-- Required meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Home Page</title>
+
+<link href='static/calendar/calendar css/fullcalendar.min.css' rel='stylesheet' />
+<link href='static/calendar/calendar css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<script src='static/calendar/lib/moment.min.js'></script>
+<script src='static/calendar/lib/jquery.min.js'></script>
+<script src='static/calendar/fullcalendar.min.js'></script>
+<!-- <script src='static/js/jquery-3.2.1.slim.min.js'></script> -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css' rel='stylesheet' />
+
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  
+  .fc-day{
+  	cursor:pointer;
+  }
+  
+  .fc-day-number:hover{
+ 	cursor: pointer;
+  }
+
+.fc-day:hover{cursor: pointer;}
+
+</style>
+
+
+<script th:inline = "javascript">
+
+$(document).ready(function() {
+	 $('#example').dataTable( {
+		    "iDisplayLength": 2
+		  } );
+} )
+	
+	//moment(contractMoment).add(19, 'days')
+	
+	/*<![CDATA[*/
+ 	var evts = [];
+ 	var date = '';
+	var examDates = /*[[${courses}]]*/ null;
+	for (i=0; i< examDates.length; i++){
+		date = examDates[i].start_date;
+		while (Date.parse(date) <= Date.parse(examDates[i].end_date)){
+			/*  moment(time, "HH:mm:ss").format("hh:mm A"); */
+	    evts.push({
+	    	id: examDates[i].courseid,
+	        title: examDates[i].course_desc + '\n Slot Available: '+  examDates[i].slot,
+	        start: date,
+			end: date,
+			stime: moment(examDates[i].start_time, "HH:mm:ss").format("hh:mm A"),
+			etime: moment(examDates[i].end_time, "HH:mm:ss").format("hh:mm A"),
+			slot: examDates[i].slot,
+			instructor: examDates[i].instructor,
+			location: examDates[i].location,
+			desc: examDates[i].course_desc,
+			allDay : true,
+	    });
+	    date = moment(date).add(1, 'days')
+		}
+	}
+	
+	
+	
+	/*]]>*/
+
+  $(document).ready(function() {
+	  
+    $('#calendar').fullCalendar({
+    	
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,listWeek'
+      },
+      defaultDate: new Date(),
+      navLinks: false, // can click day/week names to navigate views
+
+      weekNumbers: true,
+      weekNumbersWithinDays: true,
+      weekNumberCalculation: 'ISO',
+      nextDayThreshold:'00:00:00',
+      
+      eventRender: function(event, element) {
+          $(element).tooltip({title: event.desc});             
+          $(element).tooltip({content: event.slot});             
+      }, 
+      
+      
+      
+	  dayClick: function (date) {
+		  
+	    	$('#example').empty();
+	        var events = $('#calendar').fullCalendar('clientEvents');      
+	        var rows2 = "";
+	        var rows= "";
+    		rows2 += "<thead><tr><td>" + "Course Title</td><td>" + "Start Time</td><td>"+ "End Time</td><td>" + "Slot</td><td>"+ "Instructor</td><td>" + "Location</td></tr></thead><tbody>";
+    		$( rows2 ).appendTo( "#example" );
+    		for (var i = 0; i < events.length; i++) {
+	            /* if (!(date.isBefore(events[i].start) || date.isAfter(moment(events[i].end).add(-1, 'days')))) { */
+	            	if (date.isSame(events[i].start)) {
+	         		rows += "<tr><td>" + events[i].desc + "</td><td>" + events[i].stime + "</td><td>"+ events[i].etime +"</td><td>" + events[i].slot + "</td><td>"+ events[i].instructor +"</td><td>" + events[i].location + "</td></tr>";
+	         		$('#classModal').modal('show');	         		
+	            }
+	            else if (i == events.length - 1) {            
+	            }
+	        }
+	        
+	        $( rows ).appendTo( "#example" );
+	        
+	    },
+      
+/* 	  dayClick: function (date) {
+	  
+	    	$('#classTable').empty();
+	        var events = $('#calendar').fullCalendar('clientEvents');      
+	        var rows2 = "";
+	        var rows= "";
+      		rows2 += "<tr><td>" + "Course Title</td><td>"  + "Start Date</td><td>" +"End Date</td><td>" + "Start Time</td><td>"+ "End Time</td><td>" + "Slot</td><td>"+ "Instructor</td><td>" + "Location</td></tr>";
+	        for (var i = 0; i < events.length; i++) {
+	            if (!(date.isBefore(events[i].start) || date.isAfter(moment(events[i].end).add(-1, 'days')))) {
+	         		rows += "<tr><td>" + events[i].title + "</td><td>" + events[i].start.format('YYYY-MM-DD') + "</td><td>" + moment(events[i].end).add(-1, 'days').format('YYYY-MM-DD') + "</td><td>" + events[i].stime + "</td><td>"+ events[i].etime +"</td><td>" + events[i].slot + "</td><td>"+ events[i].instructor +"</td><td>" + events[i].location + "</td></tr>";
+	         		$('#classModal').modal('show');	         		
+	            }
+	            else if (i == events.length - 1) {            
+	            }
+	        }
+	        $( rows2 ).appendTo( "#classTable" );
+	        $( rows ).appendTo( "#classTable" );       
+	    }, */
+	    
+ 
+/*         eventClick: function(date){  
+	    	$('#classTable').empty();
+	        var events = $('#calendar').fullCalendar('clientEvents');      
+	        var rows2 = "";
+	        var rows= "";
+    		rows2 += "<tr><td>" + "Course Title</td><td>"  + "Start Date</td><td>" +"End Date</td><td>" + "Start Time</td><td>"+ "End Time</td><td>" + "Slot</td><td>"+ "Instructor</td><td>" + "Location</td></tr>";
+	        for (var i = 0; i < events.length; i++) {
+	            if (!(date.isBefore(events[i].start) || date.isAfter(moment(events[i].end).add(-1, 'days')))) {
+	         		rows += "<tr><td>" + events[i].title + "</td><td>" + events[i].start.format('YYYY-MM-DD') + "</td><td>" + moment(events[i].end).add(-1, 'days').format('YYYY-MM-DD') + "</td><td>" + events[i].stime + "</td><td>"+ events[i].etime +"</td><td>" + events[i].slot + "</td><td>"+ events[i].instructor +"</td><td>" + events[i].location + "</td></tr>";
+	         		$('#classModal').modal('show');	         		
+	            }
+	            else if (i == events.length - 1) {            
+	            }
+	        }
+	        $( rows2 ).appendTo( "#classTable" );
+	        $( rows ).appendTo( "#classTable" ); 
+        	
+        },  */ 
+	    
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: evts
+    }); 
+
+  });
+
+ 
+	
+	
+</script>
+
+
+</head>
+<body>
+<div id="bod">
+<div style="padding-right:16px">
+  <h2 align="right">Title Logo</h2>
+  </div>
+<div class="topnav">
+  <a class="active" href="/userInfo">Home</a>
+  <a href="/courseMain2">Course Maintenance</a>
+ 
+  <a href="/userMain2" sec:authorize="hasRole('ROLE_ADMIN')">User Maintenance</a>
+  
+  <a href="/report2">Report</a>
+  <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+</div>
+
+<div style="padding-left:16px">
+  <h2>Course Calendar</h2>
+</div>
+<div class="welcome">
+            <!-- <span sec:authorize="isAuthenticated()">Welcome <span sec:authentication="name"></span></span> -->
+        </div>
+</div>
+
+<div id='calendar'></div>
+
+<div id="classModal" class="modal fade bs-example-modal-lg" tabindex="-2" role="dialog" aria-labelledby="classInfo" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+     <!--    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          ×
+        </button> -->
+      <!--   <h4 class="modal-title" id="classModalLabel">
+              Course Schedule
+            </h4> -->
+              <h4 class="modal-title" id="classModalLabel">
+              Course Schedule
+            </h4>
+      </div>
+      <div class="modal-body">
+<!--         <table id="classTable" class="table table-bordered">
+          <thead>
+          </thead>
+          <tbody>
+        <tr>
+              <td>Course Title</td>
+              <td>Start Date</td>
+              <td>End Date</td>
+              <td>Start Time</td>
+              <td>End Time</td>
+              <td>Slot</td>
+              <td>Instructor</td>
+              <td>Location</td>
+            </tr>
+                   
+          </tbody>
+        </table> -->
+        <table id="example" class="display" style="width:100%">
+<!--          <thead>
+            <tr>
+              <td>Course Title</td>
+              <td>Start Date</td>
+              <td>End Date</td>
+              <td>Start Time</td>
+              <td>End Time</td>
+              <td>Slot</td>
+              <td>Instructor</td>
+              <td>Location</td>
+            </tr>
+        </thead> -->
+
+<!--         <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr> -->
+            </tbody>
+    </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+            </tr>
+    </table> -->
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>

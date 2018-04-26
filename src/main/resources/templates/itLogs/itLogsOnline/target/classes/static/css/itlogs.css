@@ -1,0 +1,353 @@
+html, body {
+    font-size: 12px;
+    height: auto;
+    font-family: Arial,Helvetica,Helv;
+/*     padding-bottom: 0px; */
+/*     min-height:80%; */
+background-color: #FFFFFF;
+    overflow-x: hidden;
+/*     width: 946px;  wsii */
+/* 	background-image: url("/images/gig5_sf_Philippines_subFeature_400x400_tcm113-2924145_tcm113-2750237-32.jpg"); */
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+.background {
+	background-image: url("/images/img-fcuk-top-image-company-01.jpg");
+/* 	background-size: 100% 100%; */
+	background-size: cover;
+	height: 370px !important;
+	width: 100%;
+	position: absolute;
+}
+
+.borderless td, .borderless th{
+    border: none !important;
+}
+
+.header_title {
+    background-color: #CC3300;
+    height: 60px;
+}
+
+.header_user {
+    background-color: #FF7C70;
+    color: #000000;
+    font-size: 14px
+}
+
+.label1 {
+    font-size: 16px;
+    color: #FFFFFF !important;
+/*     font-weight: bold; */
+}
+
+.label2 {
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.small_panel {
+    width: 30%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.close {
+    color: #AAAAAA;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Start : Validation Design */
+.highlight { 
+    border: 2px rgba(249, 68, 68, 0.6) solid !important;
+}
+span.err { 
+	color: #F94444;
+}
+/* End : Validation Design */
+
+/* Start : Bootstrap Override Design */
+/* .panel-default>.panel-heading, .panel-default>.panel-body { */
+/*     border-color: #FFB7B7; */
+/*     background-color: #FFB7B7; */
+/*     background: -webkit-linear-gradient(#FFDDDD, #FFB7B7); */
+/*     background: linear-gradient(#FFDDDD, #FFB7B7); */
+/* } */
+
+.panel-transparent {
+    background: none;
+    margin: 0px;
+}
+
+.panel-transparent .panel-heading{
+    background: rgba(0, 0, 0, 0.6)!important;
+    padding: 10px 10px;
+}
+
+.panel-transparent {
+    background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.panel-transparent .panel-footer{
+    background: rgba(0, 0, 0, 0.6)!important;
+}
+
+#searchPanel {
+	margin-bottom: 70px !important;
+}
+
+.input-group-addon, .btn-default {
+	background-color:#9E0000;
+    color: #FFFFFF;
+}
+
+.form-control {
+	height: 30px;
+}
+
+.alert {
+    margin: 5px;
+    padding: 15px;
+}
+
+/* End : Bootstrap Override Design */
+
+/* Start : Data Table Design */
+.data_table {
+    text-align: center;
+/*     color: #FFFFFF; */
+}
+
+.data_table>thead {
+/*     background-color: #C0504D; */
+	background-color:#6D6D6D;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.data_table>thead>tr>th, .data_table_sub>thead>tr>th {
+    text-align: center;
+}
+
+.data_table_tr_odd {
+    background-color: #FFFFFF;
+}
+
+.data_table_tr_even {
+    background-color: #F4F4F4;
+}
+
+.data_table_sub>thead, .data_table_sub>tbody {
+    background-color: #EBEBEB;
+}
+
+.img_pointer {
+    cursor: pointer;
+}
+
+.vertical_scroll {
+    max-height: 300px;
+    width: 100%; margin: 0;
+    overflow-y: scroll;
+}
+
+/* End : Data Table Design */
+
+/*md - dialog design */
+
+.showFtsDialog {
+	width: 27%;
+	max-height: 100%;
+	overflow: hidden;
+}
+
+.showFtsButton {
+	text-align: center;
+}
+
+.showFtsPanel {
+	margin-bottom: 0px;
+}
+
+.showFtsPanelContainer {
+	width: 100%; 
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 0px;
+}
+
+.showFtsPanelTitle {
+	padding-left: 0px;
+	padding-right: 0px;
+	float: left; 
+	width: 100%;
+	font-size: 20px;
+}
+
+.emailFtsPanelTitle {
+	padding-left: 0px;
+	padding-right: 0px;
+	float: left; 
+	width: 100%;
+	font-size: 20px;
+}
+
+.showFtsPanelBody {
+	min-height: 150px;
+  	max-height: 425px; 
+  	overflow-y: auto;
+}
+
+.footerControl {
+	height: 100%;
+	min-height:80%;
+	padding-bottom: 0px;
+}
+
+.syncFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  border-top: 4px solid black;
+  text-align: center;
+  margin-top: 10px;
+/*   background-color: #cc3a37; */
+  background-color: black;
+  color: white;
+ }
+
+.panelBody {
+	padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+#searchForm {
+	min-height:450px;
+}
+
+.grad1 {
+    height: 40px;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, gray, black, black, black); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, gray, black, black, black); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, gray, black, black, black); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, gray, black, black, black); /* Standard syntax (must be last) */
+}
+
+.footerBg {
+	background-image: url("/images/footer.png");
+	position: absolute;
+}
+
+.btnCustomColor {
+	background-color:#9E0000 !important;
+    color: #FFFFFF !important;
+}
+
+/*end md - dialog design */
+
+.fixedHeader {
+	position: fixed; 
+	width: 100%; 
+	z-index: 3;
+}
+
+.bodyMargin {
+	padding-top: 6%;
+}
+
+.md-icon-button {
+	padding: 0px;
+	float: right;
+}
+
+.emailFtsDialog {
+	width: 45% !important;
+	max-height: 100% !important;
+}
+
+.btnClose{
+  fill: #fff;
+}
+
+.genericPad {
+	padding: 0px;
+	margin: 0px;
+}
+
+.emailTextArea {
+	width: 100%;
+    height: 250px;
+}
+
+.ui-autocomplete { 
+	height: 350px; 
+	overflow-y: scroll; 
+	overflow-x: hidden;
+}
+
+.btnCustomColor:hover {
+    -webkit-transform:scale(1.15);
+    -moz-transform:scale(1.15);
+    -ms-transform:scale(1.15);
+    -o-transform:scale(1.15);
+    transform:scale(1.15);
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+
+.input-group-addon:hover {
+    -webkit-transform:scale(1.15);
+    -moz-transform:scale(1.15);
+    -ms-transform:scale(1.15);
+    -o-transform:scale(1.15);
+    transform:scale(1.15);
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+
+.md-icon-button:hover {
+    -webkit-transform:scale(1.35);
+    -moz-transform:scale(1.35);
+    -ms-transform:scale(1.35);
+    -o-transform:scale(1.35);
+    transform:scale(1.35);
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+
+.btn-link:hover {
+    -webkit-transform:scale(1.35);
+    -moz-transform:scale(1.35);
+    -ms-transform:scale(1.35);
+    -o-transform:scale(1.35);
+    transform:scale(1.35);
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+
+#fromDate, #toDate, #fromTime {
+	z-index:0;
+}
